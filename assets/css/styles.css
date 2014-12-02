@@ -1,0 +1,55 @@
+html{
+	height:100%;
+}
+
+body{
+	background-image:url('../images/asteroids.jpg');
+	color:white;
+	position:relative;
+	font-family:sans-serif;
+}
+input{
+	width:100%;
+	border-radius:5px;
+	height:35px;
+	padding:8px 15px;
+	border:none;
+	margin-top:15px;
+}
+.btn-success{
+	background:rgb(85, 189, 85);
+padding: 5px 10px;
+width: 100%;	
+	color:white;	
+}
+.btn-success:hover{
+	background:rgb(62, 169, 62);
+}
+.login-header {
+width: 320px;
+margin: 0 auto;
+margin-top: 150px;
+background: rgb(205, 69, 69);
+border-bottom: 3px solid rgb(184, 62, 62);
+padding: 15px 30px;
+text-align: center;
+letter-spacing:2;
+}
+.login{
+color: white;
+background: rgb(223, 224, 252);
+width: 320px;
+margin: -15px -30px 0;
+padding: 0 30px 15px;
+}
+.login-wrapper{
+	width:380px;
+	margin:0 auto;
+	background:white;
+	margin-bottom:20px;
+}
+.log-form{
+background:white;
+padding:15px 30px;
+margin:0 auto;
+}

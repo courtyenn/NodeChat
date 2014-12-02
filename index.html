@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+		<head>
+		<link rel="stylesheet" href="./assets/css/styles.css">
+					<title>NodeChat</title>
+		</head>
+	<body>
+
+					<div class="login-wrapper">
+									<h2 class="login-header">NodeChat</h2>
+<form class="log-form" method="POST" action="/home">
+		<div class="login">	
+						
+						<input id="channel" type="text" placeholder="Channel" />
+						<input id="name" type="text" placeholder="Nickname" />	
+		</div>
+	<input id="join" class="btn-success" type="submit" value="Enter" />
+</form>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script>
+
+
+						function triggerFormVal() {
+										
+										if ($('#name').val().trim().length > 0 && $('#channel').val().trim().length > 0) {
+            return true;
+										
+										} else {
+														// show invalid
+														return false;
+										
+										}
+						
+						}
+						$(document).on('ready', function(){
+										$('#join').on('click', function(){
+														if(triggerFormVal()){
+															console.log('entered!');
+															location.href = './home.html';
+														}	
+										});				
+						});
+		</script>
+<!--		<script>document.write(process.version)</script> -->
+</body>
+</html>
