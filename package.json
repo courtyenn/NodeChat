@@ -1,6 +1,7 @@
 {
   "name": "NodeChat",
   "node-main": "app.js",
+	"single-instance":false,
   "window": {
     "width": 800,
     "height": 600,

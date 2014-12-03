@@ -1,41 +1,29 @@
-<!doctype>
-<html>
-		<head>
-		<link rel="stylesheet" href="./assets/css/styles.css">
-					<title>NodeChat</title>
-		</head>
-	<body>
 
-					<div class="home">
+					<div class="chatroom">
+									<h1 id="chat-title">Test Name</h1>
+									<div class="messages">
+										<div class="message">
+														<span><em>Test1:</em> HI! </span>													
+										</div>
+											<div class="message">
+														<span><em>Test2:</em> WHATSUP! </span>													
+										</div>
+
+						</div>
 					</div>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script>
-
-
-						function triggerFormVal() {
-										
-										if ($('#name').val().trim().length > 0 && $('#channel').val().trim().length > 0) {
-            return true;
-										
-										} else {
-														// show invalid
-														return false;
-										
-										}
+						<div class="send-form">
+										<input type="text" placeholder="Write your message..." />
+										<input id="test" type="submit" class="btn-success" value="Send" />
 						
-						}
-						$(document).on('ready', function(){
-										$('#join').on('click', function(){
-														//	if(triggerFormVal()){
-														console.log($('name').val());
-															console.log('entered!');
-															location.href = 'home.html';
-													//	}	
-										});				
-						});
-		</script>
-<!--		<script>document.write(process.version)</script> -->
-</body>
-</html>
+						</div>
 
+						
+					<script>
+
+									var user = localStorage.getItem('user');
+									user = JSON.parse(user);
+									console.log(user);
+									console.log(user.nickname);
+									$('#test').val(user.nickname);
+
+					</script>

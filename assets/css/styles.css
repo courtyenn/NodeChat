@@ -20,7 +20,8 @@ input{
 	background:rgb(85, 189, 85);
 padding: 5px 10px;
 width: 100%;	
-	color:white;	
+	color:white;
+cursor:pointer;	
 }
 .btn-success:hover{
 	background:rgb(62, 169, 62);
@@ -52,4 +53,33 @@ padding: 0 30px 15px;
 background:white;
 padding:15px 30px;
 margin:0 auto;
+}
+.chatroom{
+padding:0 30px;
+}
+.send-form {
+position: absolute;
+bottom: 0;
+width: 92%;
+margin-left: 30px;
+padding: 0 0px;
+}
+.messages {
+height: 400px;
+overflow-y: auto;
+}
+.message {
+background: gray;
+margin: 10px 0;
+min-height: 28px;
+padding: 10px 15px 0;
+border-radius: 4px;
+}
+.wd-600 {
+width: 600px;
+float: left;
+margin-right: 15px;
+}
+.wd-100{
+	width:100px;
 }

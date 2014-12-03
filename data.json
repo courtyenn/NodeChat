@@ -1,0 +1,5 @@
+{
+	"name":"default",
+	"users": ["Test-dummy", "Catty"],
+	"recentmessages": [{"user":"Test-dummy", "msg":"Hey!"}, {"user":"Catty", "msg":"OMG! HI!"}]
+}

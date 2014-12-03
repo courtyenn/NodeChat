@@ -4,18 +4,18 @@
 		<link rel="stylesheet" href="./assets/css/styles.css">
 					<title>NodeChat</title>
 		</head>
-	<body>
+	<body id="main">
 
 					<div class="login-wrapper">
 									<h2 class="login-header">NodeChat</h2>
-<form class="log-form" method="POST" action="/home">
+<div class="log-form">
 		<div class="login">	
 						
 						<input id="channel" type="text" placeholder="Channel" />
 						<input id="name" type="text" placeholder="Nickname" />	
 		</div>
 	<input id="join" class="btn-success" type="submit" value="Enter" />
-</form>
+</div>
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
@@ -34,13 +34,18 @@
 										}
 						
 						}
-						$(document).on('ready', function(){
+$(document).on('ready', function(){
 										$('#join').on('click', function(){
-														if(triggerFormVal()){
-															console.log('entered!');
-															location.href = './home.html';
-														}	
-										});				
+														//	if(triggerFormVal()){
+														//								window.location = './home.html';
+
+							localStorage.setItem('user', JSON.stringify({
+                'nickname': $('#name').val()
+            }));
+
+												$('#main').load('./home.html');
+													//	}	
+										});					
 						});
 		</script>
 <!--		<script>document.write(process.version)</script> -->
