@@ -2,7 +2,11 @@
 <html>
 		<head>
 		<link rel="stylesheet" href="./assets/css/styles.css">
-					<title>NodeChat</title>
+		<title>NodeChat</title>
+<script src="bower_components/socket.io-client/socket.io.js"></script>
+<script>
+				var socket = io('http://localhost:3000');
+</script>
 		</head>
 	<body id="main">
 
@@ -10,7 +14,7 @@
 									<h2 class="login-header">NodeChat</h2>
 <div class="log-form">
 		<div class="login">	
-						
+						<span id="error" class="hide error">Please enter a channel or nickname.</span>
 						<input id="channel" type="text" placeholder="Channel" />
 						<input id="name" type="text" placeholder="Nickname" />	
 		</div>
@@ -21,7 +25,8 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script>
 
-
+	
+window.nodeChat = window.nodeChat || {};
 						function triggerFormVal() {
 										
 										if ($('#name').val().trim().length > 0 && $('#channel').val().trim().length > 0) {
@@ -30,24 +35,47 @@
 										} else {
 														// show invalid
 														return false;
-										
+									 
 										}
 						
 						}
 $(document).on('ready', function(){
-										$('#join').on('click', function(){
-														//	if(triggerFormVal()){
-														//								window.location = './home.html';
+				$('#join').on('click', function(){
+								$('#error').addClass('hide');
+								if(triggerFormVal()){
 
-							localStorage.setItem('user', JSON.stringify({
-                'nickname': $('#name').val()
-            }));
+												var nickname = $('#name').val();
+												var chatroom = $('#channel').val();
+												socket.emit('user', {"nickname":nickname,
+																							"chatroom":chatroom});
+												socket.on('enter', function(data){
+																if(data.isValid){
+				localStorage.setItem('user', JSON.stringify({
+           'nickname': nickname
+				}));
+				localStorage.setItem('channel', JSON.stringify({
+								'channel': data.chatroom,
+								'users': data.users,
+								'messages':data.messages
+        }));
+					$('#main').load('./home.html');
 
-												$('#main').load('./home.html');
-													//	}	
+																}
+																else{
+																	$('#error').html('Nickname is taken').removeClass('hide');
+																}				
+												});
+
+
+							}
+							else{
+								$('#error').html('Please enter a channel or nickname.').removeClass('hide');
+							}	
 										});					
 						});
 		</script>
-<!--		<script>document.write(process.version)</script> -->
+
+
+<!--	<script>document.write(process.version)</script>  -->
 </body>
 </html>

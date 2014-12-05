@@ -1,7 +1,7 @@
 {
   "name": "NodeChat",
   "node-main": "app.js",
-	"single-instance":false,
+  "single-instance": false,
   "window": {
     "width": 800,
     "height": 600,
@@ -28,6 +28,7 @@
   "dependencies": {
     "body-parser": "^1.9.3",
     "bower": "^1.3.12",
+    "diskdb": "^0.1.14",
     "ejs": "^1.0.0",
     "express": "^4.10.4",
     "sails": "^0.10.5"

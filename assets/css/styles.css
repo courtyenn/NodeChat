@@ -41,7 +41,7 @@ color: white;
 background: rgb(223, 224, 252);
 width: 320px;
 margin: -15px -30px 0;
-padding: 0 30px 15px;
+padding: 1px 30px 15px;
 }
 .login-wrapper{
 	width:380px;
@@ -82,4 +82,15 @@ margin-right: 15px;
 }
 .wd-100{
 	width:100px;
+}
+.hide{
+display:none !important;
+}
+.error{
+height: 30px;
+display: block;
+padding: 15px 0 0;
+text-align: center;
+background: hsl(4,71%,70%);
+margin-top: 15px;
 }

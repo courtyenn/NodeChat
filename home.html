@@ -1,7 +1,33 @@
+<script>
+var room = JSON.parse(localStorage.getItem('channel'));
+				$('#chat-title').html(room.chatroom);
+				var user = localStorage.getItem('user');
+				user = JSON.parse(user);
+				$('#owner').html(user.nickname);
+var allMessages ='<div id="messages" class="messages">';
+for(var x=0; x< room.messages.length; x++){
+				if(room.messages[x].user === user.nickname){
+				allMessages+= '<div class="message msg-user"><span><em>';
+				}
+				else
+				{
+					allMessages+='<div class="message msg"><span><em>';
+				}
+				allMessages+=room.messages[x].user+'</em>'+room.messages[x].message+
+								'</span><span>'+room.messages[x].date+'</span></div>';
+}
+allMessages+="</div>";
+				$('#test').on('click', function(){
+								var msg = $('#msg').val();
 
+								$('#messages').append('<div class="message msg-user><span><em>'+user+'</em>'+msg+'</span></div>"');
+
+								socket.emit('send message', {"user":user.nickname ,"msg":msg, "date":new Date().getTime()},"Test to receive");
+				});
+</script>
 					<div class="chatroom">
 									<h1 id="chat-title">Test Name</h1>
-									<div class="messages">
+									<div id="messages" class="messages">
 										<div class="message">
 														<span><em>Test1:</em> HI! </span>													
 										</div>
@@ -12,18 +38,14 @@
 						</div>
 					</div>
 						<div class="send-form">
-										<input type="text" placeholder="Write your message..." />
-										<input id="test" type="submit" class="btn-success" value="Send" />
+										<span id="owner"></span><input id="msg" type="text" class="wd-600" placeholder="Write your message..." />
+										<input id="test" type="submit" class="btn-success wd-100" value="Send" />
 						
 						</div>
-
 						
-					<script>
+<script> 	
 
-									var user = localStorage.getItem('user');
-									user = JSON.parse(user);
-									console.log(user);
-									console.log(user.nickname);
-									$('#test').val(user.nickname);
+								
 
-					</script>
+				
+</script>

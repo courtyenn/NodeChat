@@ -1,5 +1,5 @@
 {
 	"name":"default",
-	"users": ["Test-dummy", "Catty"],
+	"users": [{"nickname": "Test-dummy"}, {"nickname":"Catty"}],
 	"recentmessages": [{"user":"Test-dummy", "msg":"Hey!"}, {"user":"Catty", "msg":"OMG! HI!"}]
 }
